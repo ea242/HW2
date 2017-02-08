@@ -6,10 +6,11 @@
 </head>
 <body>
 <?php
+setlocale(LC_MONETARY, 'en_US');
 $product = $_POST["product_description"];
 $price = $_POST["list_price"];
-$disc = $_POST["discount_percent"];
-$disc = $disc/100;
+$disc2 = $_POST["discount_percent"];
+$disc = $disc2/100;
 $sDisc = $price*$disc;
 $sPrice = $price-$sDisc;
 ?>
@@ -20,16 +21,16 @@ $sPrice = $price-$sDisc;
         <span><?php echo $product; ?></span><br>
 
         <label>List Price:</label>
-        <span><?php echo $price; ?></span><br>
+        <span><?php echo money_format('%n',$price); ?></span><br>
 
         <label>Standard Discount:</label>
-        <span><?php echo $disc; ?></span><br>
+        <span><?php echo $disc2."%"; ?></span><br>
 
         <label>Discount Amount:</label>
-        <span><?php echo $sDisc; ?></span><br>
+        <span><?php echo money_format('%n',$sDisc); ?></span><br>
 
         <label>Discount Price:</label>
-        <span><?php echo $sPrice; ?></span><br>
+        <span><?php echo money_format('%n',$sPrice); ?></span><br>
     </main>
 </body>
 </html>
