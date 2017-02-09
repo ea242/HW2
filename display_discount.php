@@ -7,9 +7,9 @@
 <body>
 <?php
 setlocale(LC_MONETARY, 'en_US');
-$product = htmlspecialchars($_POST["product_description"]);
-$price = htmlspecialchars($_POST["list_price"]);
-$disc2 = htmlspecialchars($_POST["discount_percent"]);
+$product = htmlspecialchars(filter_input(INPUT_POST,"product_description",FILTER_SANITIZE_STRING));
+$price = htmlspecialchars(filter_input(INPUT_POST,"list_price",FILTER_SANITIZE_NUMBER_INT));
+$disc2 = htmlspecialchars(filter_input(INPUT_POST,"discount_percent",FILTER_SANITIZE_NUMBER_INT));
 $disc = $disc2/100;
 $sDisc = $price*$disc;
 $sPrice = $price-$sDisc;
