@@ -7,15 +7,15 @@
 <body>
 <?php
 setlocale(LC_MONETARY, 'en_US');
-$product = $_POST["product_description"];
-$price = $_POST["list_price"];
-$disc2 = $_POST["discount_percent"];
+$product = htmlspecialchars($_POST["product_description"]);
+$price = htmlspecialchars($_POST["list_price"]);
+$disc2 = htmlspecialchars($_POST["discount_percent"]);
 $disc = $disc2/100;
 $sDisc = $price*$disc;
 $sPrice = $price-$sDisc;
 ?>
     <main>
-        <h1>This page is under construction</h1>
+        <h1>Product Discount Calculator</h1>
 
         <label>Product Description:</label>
         <span><?php echo $product; ?></span><br>
